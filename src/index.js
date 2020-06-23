@@ -1,23 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inputButton = document.querySelector('input[type="submit"]');
-    const ul = document.getElementById('tasks');
+  const createButton = document.querySelector('input[value="Create New Task"]');
+  const deleteButton = document.querySelector('input[value="Delete Task"]');
+  const ul = document.getElementById('tasks');
 
 
-  inputButton.addEventListener('click', function(x){
+  // Handles List Creation
+  createButton.addEventListener('click', function(x){
     event.preventDefault()
     newlist()
+  });
+
+  function newlist() {
+    let newli = document.createElement('li');
+    ul.appendChild(newli);
+  }
+
+  // Handles List Deletion
+  deleteButton.addEventListener('click', function(x){
+    event.preventDefault()
+    deleteList()
+  });
+
+  function deleteList(){
+    allLi = document.querySelectorAll('ul#tasks > li')
+    console.log(`${allLi[allLi.length - 1]}`)
     
+  }
+  
 
-
-  })
-
-
- function newlist() {
-     let newli = document.createElement('li');
-       ul.appendChild(newli);
-
-
- }
 
 
 

@@ -11,9 +11,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function newlist() {
-    let newli = document.createElement('li');
-    ul.appendChild(newli);
+    let newLi = document.createElement('li');
+    newLi.textContent = description()
+    ul.appendChild(newLi);
   }
+
+  function description() {
+    let desc = document.getElementById('new-task-description');
+       let newText = desc.value;
+       return newText
+    }
 
   // Handles List Deletion
   deleteButton.addEventListener('click', function(x){
@@ -23,13 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function deleteList(){
     allLi = document.querySelectorAll('ul#tasks > li')
-    console.log(`${allLi[allLi.length - 1]}`)
-    
+    allLi[allLi.length - 1].remove()
   }
-  
-
-
-
-
 
 });

@@ -12,15 +12,17 @@
     <form id="create-task-form" action="#" method="post">
       <label for="new-task-description">Task description:</label>
       <input type="text" id="new-task-description" name="new-task-description" placeholder="description">
-        <label for="cars">Choose a car:</label>
-        <select name="cars" id="cars">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select> 
+      
+      <!-- Handles Selection Form-->  
+      <label for="importance_form">Importance Value:</label>
+      <select name="importance_form" id="importance_form">
+        <option id="" value="red">High Priority</option>
+        <option id="mp" value="olive">Medium Priority</option>
+        <option id ="lp" value="green">Low Priority</option>
+      </select> 
+
       <input type="submit" value="Create New Task">
-      <input type="submit" value="Delete Task">
+      <!-- <input type="submit" value="Delete Task"> -->
     </form>
 
     <div id="list">

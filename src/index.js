@@ -8,17 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
     newlist()
     
 
+    
+
 
   })
 
 
  function newlist() {
-     let newli = document.createElement('li');
-       ul.appendChild(newli);
-
+    let newLi = document.createElement('li');
+    newLi.textContent = description()
+    ul.appendChild(newLi);
+    
 
  }
 
+ function description() {
+ let desc = document.getElementById('new-task-description');
+    let newText = desc.value;
+    return newText
+
+ }
 
 
 

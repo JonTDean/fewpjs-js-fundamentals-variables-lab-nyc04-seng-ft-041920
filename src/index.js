@@ -1,37 +1,37 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {  
   const form = document.getElementById("importance_form");
-  const createButton = document.querySelector('input[value="Create New Task"]');
-  const ul = document.getElementById('tasks');
   const taskForm = document.getElementById("create-task-form");
-  const deleteButton = document.querySelector('input#delete');
+
+  const descriptionButton = document.querySelector('input[value="Create New Task"]');
+
+  const ul = document.getElementById('tasks');
   list_color = form.value;
 
   // Handles List Creation
-  createButton.addEventListener('click', function(){
-    event.preventDefault()
+  descriptionButton.addEventListener('click', function(){
+    event.preventDefault();
     newlist()
   });
 
   function newlist() {
     let newLi = document.createElement('li');
-    newLi.textContent = description()
+    newLi.textContent = `${description()} made by: ${userName()}`;
     newLi.style.color = form.value;
     ul.appendChild(newLi);
   }
 
   function description() {
     let desc = document.getElementById('new-task-description');
-       let newText = desc.value;
-       return newText
+    return desc.value;
   }
 
- 
-
+  function userName(){
+    let uName = document.getElementById('new-user-name');
+    return uName.value;
+  }
 
 });
-
-
 
 document.addEventListener('click', function(x){
   const allLi = document.querySelectorAll('ul#tasks > li');

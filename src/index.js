@@ -1,24 +1,45 @@
-
 document.addEventListener("DOMContentLoaded", () => {  
   const form = document.getElementById("importance_form");
-  const taskForm = document.getElementById("create-task-form");
-
   const descriptionButton = document.querySelector('input[value="Create New Task"]');
+  const form_ul = document.getElementById('tasks');
+  const allLi = document.querySelectorAll('ul#tasks > li');
 
-  const ul = document.getElementById('tasks');
   list_color = form.value;
 
   // Handles List Creation
   descriptionButton.addEventListener('click', function(){
     event.preventDefault();
     newlist()
+    sortList()
   });
 
   function newlist() {
+    // Create a new list section
     let newLi = document.createElement('li');
-    newLi.textContent = `${description()} made by: ${userName()}`;
+    let liContainer = document.createElement('div');
+    let liP_desc = document.createElement('p')
+    let liP_user = document.createElement('p')
+    const br = document.createElement("br");
+    const hr = document.createElement("hr")
+    
+    // Create a list Item and add a Div tag
     newLi.style.color = form.value;
-    ul.appendChild(newLi);
+    newLi.className = "dynamic_list"
+    newLi.appendChild(liContainer);
+
+    // Create a Paragraph inside of a div
+      // Makes a Description inside of a Paragraph
+    liP_user.textContent = `Made By: ${userName()}`;
+    liContainer.appendChild(liP_user);
+    liP_desc.appendChild(br); //inner Break
+      // Makes a Description inside of a Paragraph
+    liP_desc.textContent = description();
+    liContainer.appendChild(liP_desc);
+      // Makes a line after the Lines
+    liContainer.appendChild(hr)
+
+    // Add the final Div to the ul
+    form_ul.appendChild(newLi);
   }
 
   function description() {
@@ -30,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let uName = document.getElementById('new-user-name');
     return uName.value;
   }
+
 
 });
 
